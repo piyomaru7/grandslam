@@ -1,75 +1,41 @@
-# テーブル設計
- 
-## users
+# アプリケーション名 
+grandslam
+# アプリケーション概要
+一言で表すと、野球好きのためのSNS。<br>オススメの野球道具やオススメの練習方法などをシェアすることができる。また、ユーザー同士が相互フォローし合って繋がることができる。
+# URL
+https://grandslam.onrender.com
+# テスト用アカウント
+- Basic認証パスワード 8989
+- Basic認証ID  grand
+# 利用方法
+## 投稿
+1. トップページのヘッダーからユーザー新規登録を行う
+2. 投稿作成ボタンから画像またはテキストを入力し投稿する
+## 投稿のお気に入り
+1. 投稿をクリックし、投稿の詳細ページに遷移後ハートボタンをクリックしてお気に入り登録する
+2. お気に入り登録を解除する際はお気に入りした投稿のハートボタンを再度クリックする
+## ユーザーのフォロー
+1. 投稿の詳細ページまたはユーザーのプロフィールページのフォローするボタンをクリックする
+2. フォローの解除をする際はフォロー中ボタンをクリックする
+# アプリケーションを作成した背景
+野球に関する情報を共有し合いたいが、インスタグラムやツイッターのようなSNSでは専門性があることについて興味がない人がフォロワーにいたりして情報の発信や共有がしづらいことから、専門性を持った人が集まれるコミュニティがあれば、発信しやすく、情報収集や共有がしやすくなると考え、野球専門のSNSを開発しようと考えた。
+# 洗い出した要件
+[要件を定義したシート](https://docs.google.com/spreadsheets/d/1u1-0RvMScN9cWAX6VbKqd624b7HZRNUgbhEd2tfKRuM/edit?usp=sharing)
+# 実装した機能についての画像やGIFおよびその説明
 
-|Column            |Type   |Options                  |
-|------------------|-------|-------------------------|
-|user_name         |string |null: false, unique: true|
-|nickname          |string |                         |
-|email             |string |null: false, unique: true|
-|encrypted_password|string |null: false              |
-|position          |string |                         |
-|pitching          |string |                         |
-|age               |string |                         |
-|area              |string |                         |
-|year              |integer|                         | 
-|fan               |string |                         |
-|text              |text   |                         |
+# 実装予定の機能
 
-### Association
+# データベース設計
+https://gyazo.com/7af109157d9339d737a4c31ac2a429cf
+# 画面遷移図
+https://gyazo.com/b610490fb74c1ed4d1ea57697602a87b
+# 開発環境
+- フロントエンド
+- バックエンド
+- インフラ
+- テスト
+- テキストエディタ
+- タスク管理
 
-- has_many :posts
-- has_many :comments
-- has_many :favorites
-- has_many :follower
-- has_many :followed
-
-## posts
-
-|Column|Type      |Options                       |
-|------|----------|------------------------------|
-|text  |text      |null: false                   |
-|user  |references|null: false, foreign_key: true|
-
-### Association
-
-- belongs_to :user
-- has_many   :comments
-- has_many   :favorites
-
-## comments
-
-|Column|Type      |Options                       |
-|------|----------|------------------------------|
-|text  |text      |null: false                   |
-|user  |references|null: false, foreign_key: true|
-|post  |references|null: false, foreign_key: true|
-
-### Association
-
-- belongs_to :user
-- belongs_to :post
-
-## relationships
-
-|Column  |Type      |Options                       |
-|--------|----------|------------------------------|
-|follower|references|null: false, foreign_key: true|
-|followed|references|null: false, foreign_key: true|
-
-### Association
-
-- belongs_to :user
-
-## favorites
-
-|Column  |Type      |Options                       |
-|--------|----------|------------------------------|
-|user    |references|null: false, foreign_key: true|
-|post    |references|null: false, foreign_key: true|
-
-### Association
-
-- belongs_to :user
-- belongs_to :post
+# 工夫したポイント
 
