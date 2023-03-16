@@ -12,7 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string  :pitching
       t.string  :age
       t.string  :area
-      t.integer :year
+      t.string  :year
       t.string  :fan
       t.text    :text
 

@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2023_03_15_092949) do
     t.string "pitching"
     t.string "age"
     t.string "area"
-    t.integer "year"
+    t.string "year"
     t.string "fan"
     t.text "text"
     t.string "reset_password_token"
