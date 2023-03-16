@@ -40,7 +40,9 @@ a {
   background-color: #ef3814;
   margin-bottom: 48px;
   padding: 20px 0;
-
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 .inner {
   width: 1024px;
@@ -62,12 +64,13 @@ a {
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #fff;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #fff solid;
   border-radius: 3px;
   transition: 0.4s ease;
+  margin-right: 20px;
 }
 .nav__btn:hover{
   color: #fff;
@@ -78,12 +81,16 @@ a {
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #fff;
   text-decoration: none;
   user-select: none;
 }
 .nav__logout:hover{
   opacity: 0.5;
+}
+
+.header_user_name{
+  color: #fff;
 }
 
 /* フォーム周り */
@@ -324,3 +331,30 @@ a {
   }
 }
 
+/* 検索フォーム */
+.search-form {
+  text-align: center;
+  padding: 32px 0 32px 0;
+}
+
+.search-form .search-input {
+  width: 30%;
+  margin-right: 10px;
+}
+
+.search-form .search-btn {
+  width: 10%;
+}
+
+/* エラーメッセージ */
+.error-alert {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+
+.error-message {
+  font-size: 1.3vw;
+  list-style: circle;
+  color: rgb(182, 48, 0);
+}

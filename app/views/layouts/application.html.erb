@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel='stylesheet' href='posts.css' type='text/css' media='all' />
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap" rel="stylesheet">
   </head>
@@ -21,6 +22,7 @@
             <div class="nav__right">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
               <%= link_to "投稿する", root_path, class: :nav__btn %>
+              <%= link_to current_user.user_name, "#" , class: :header_user_name %>
             </div>
           <% else %>
             <div class="nav__right">
