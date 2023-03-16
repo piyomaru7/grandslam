@@ -60,6 +60,9 @@ a {
   color:#fff;
   font-style: oblique;
 }
+.logo:hover{
+  opacity: 0.5;
+}
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
@@ -74,7 +77,7 @@ a {
 }
 .nav__btn:hover{
   color: #fff;
-  background: #87CEFA;
+  opacity: 0.5;
 }
 
 .nav__logout{
@@ -91,6 +94,9 @@ a {
 
 .header_user_name{
   color: #fff;
+}
+.header_user_name:hover{
+  opacity: 0.5;
 }
 
 /* フォーム周り */
@@ -274,6 +280,16 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+.user_edit_btn{
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.user_edit_btn a{
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px 10px;
 }
 /* フッター */
 

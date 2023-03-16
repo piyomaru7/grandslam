@@ -1,0 +1,139 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= "#{@user.user_name}のマイページ"%>
+      </h2>
+      <% if user_signed_in? && current_user.id == @user.id %>
+      <div class="user_edit_btn">
+        <%= link_to '編集', edit_user_path(@user) %>
+      </div>
+      <% end %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">ユーザー名</th>
+            <td class="table__col2"><%= @user.user_name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">ニックネーム</th>
+            <td class="table__col2"><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">ポジション</th>
+            <td class="table__col2"><%= @user.position %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">投打</th>
+            <td class="table__col2"><%= @user.pitching %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">年齢</th>
+            <td class="table__col2"><%= @user.age %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">都道府県</th>
+            <td class="table__col2"><%= @user.area %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">経験年数</th>
+            <td class="table__col2"><%= @user.year %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">ファン球団</th>
+            <td class="table__col2"><%= @user.fan %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">ひと言</th>
+            <td class="table__col2"><%= @user.text %></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%= "#{@user.user_name}の投稿"%>
+      </h2>
+      <div class="user__card">
+        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
+        <!-- ▼twitter風ここから -->
+        <div class="twitter__container">
+          <!-- タイトル -->
+          <div class="twitter__title">
+            <span class="twitter-logo"></span>
+          </div>
+
+          <!-- ▼タイムラインエリア scrollを外すと高さ固定解除 -->
+          <div class="twitter__contents scroll">
+
+            <!-- 記事エリア -->
+            <div class="twitter__block">
+              <figure>
+                <img src="icon.png" />
+              </figure>
+              <div class="twitter__block-text">
+                <div class="name">うさきち<span class="name_reply">@usa_tan</span></div>
+                <div class="date">10分前</div>
+                <div class="text">
+                  今日も終電だよ～<br>
+                </div>
+                <div class="twitter__icon">
+                  <span class="twitter-bubble"></span>
+                  <span class="twitter-loop"></span>
+                  <span class="twitter-heart"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 記事エリア -->
+            <div class="twitter__block">
+              <figure>
+                <img src="icon.png" />
+              </figure>
+              <div class="twitter__block-text">
+                <div class="name">うさきち<span class="name_reply">@usa_tan</span></div>
+                <div class="date">1時間前</div>
+                <div class="text">
+                  残業でお腹空いたから朝までやってるお店でラーメン食べることにした(^o^)神の食べ物すぎる・・うまぁ
+                  <div class="in-pict">
+                    <%= image_tag 'images.globe.png' %>
+                  </div>
+                </div>
+                <div class="twitter__icon">
+                  <span class="twitter-bubble">1</span>
+                  <span class="twitter-loop">4</span>
+                  <span class="twitter-heart">122</span>
+                </div>
+              </div>
+            </div>
+
+            
+            <!-- 記事エリア -->
+            <div class="twitter__block">
+              <figure>
+                <%= image_tag 'images.globe.png' %>
+              </figure>
+              <div class="twitter__block-text">
+                <div class="name">うさきち<span class="name_reply">@usa_tan</span></div>
+                <div class="date">1時間前</div>
+                <div class="text">
+                  残業でお腹空いたから朝までやってるお店でラーメン食べることにした(^o^)神の食べ物すぎる・・うまぁ
+                  <div class="in-pict">
+                    <%= image_tag 'images.globe.png' %>
+                  </div>
+                </div>
+                <div class="twitter__icon">
+                  <span class="twitter-bubble">1</span>
+                  <span class="twitter-loop">4</span>
+                  <span class="twitter-heart">122</span>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <!--　▲タイムラインエリア ここまで -->
+        </div>
+        <!--　▲twitter風ここまで -->
+      </div>
+    </div>
+  </div>
+</div>
