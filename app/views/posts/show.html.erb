@@ -69,8 +69,8 @@
         <%= link_to comment.user.user_name, user_path(comment.user), class: :comment_user %>：
         <%= comment.text %>
         <% if user_signed_in? && current_user.id == comment.user_id %>
-        <%= link_to "編集",  "#" %>
-        <%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete %>
+        <%# <%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete %> 
+        <%= link_to image_tag("gomibako.png", class: :delete_image), post_comment_path(comment.post.id, comment.id), method: :delete %>
         <% end %>
       </li>
     <% end %>
