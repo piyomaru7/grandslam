@@ -47,13 +47,14 @@
   <!--　▲タイムラインエリア ここまで -->
 </div>
 <!--　▲twitter風ここまで -->
+
 <div class="prototype__comments">
   <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
   <% if user_signed_in? %>
-    <%= form_with model: [@post],local: true do |f| %>
+    <%= form_with model: [@post, @comment],local: true do |f| %>
       <div class="field">
-        <%= f.label :content, "コメント" %><br />
-        <%= f.text_field :hoge, id:"comment_content" %>
+        <%= f.label :text, "コメント" %><br />
+        <%= f.text_field :text, id:"comment_content" %>
       </div>
       <div class="actions">
         <%= f.submit "送信する", class: :form__btn %>
@@ -63,12 +64,16 @@
   <%# // ログインしているユーザーには上記を表示する %>
   <ul class="comments_lists">
     <%# 投稿に紐づくコメントを一覧する処理を記述する %>
-    <%# <% @comments.each do |comment|%> 
-      <li class="comments_list">
-        <%# <%= comment.content %>
-        <%= link_to "", "#", class: :comment_user %>
+    <% @comments.each do |comment| %>
+      <li class="comments_list">        
+        <%= link_to comment.user.user_name, user_path(comment.user), class: :comment_user %>：
+        <%= comment.text %>
+        <% if user_signed_in? && current_user.id == comment.user_id %>
+        <%= link_to "編集",  "#" %>
+        <%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete %>
+        <% end %>
       </li>
-    <%# <% end %> 
+    <% end %>
     <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
   </ul>
 </div>
