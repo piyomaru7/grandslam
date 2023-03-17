@@ -123,3 +123,26 @@
   float: left;
   color: #8a9aa4;
 }
+
+/* 投稿時間 */
+.date_show{
+  margin-top: 10px;
+  color: #8a9aa4;
+}
+/* 投稿詳細画面のボタン */
+.show_btn{
+  text-align: right;
+  margin-right: 20px;
+}
+.show_btn a{
+  background: #ef3814;
+  border: 1px #fff solid;
+  color: #fff;
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin-left: 10px;
+}
+.show_btn a:hover{
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}

@@ -24,14 +24,16 @@
           <%= link_to post.user.nickname, user_path(post.user)%>
           <span class="name_reply"><%= link_to "@#{post.user.user_name}", user_path(post.user) %></span>
         </div>
+        <%= link_to post_path(post) do %>
         <div class="date"><%= time_ago_in_words(post.created_at) %></div>
         <div class="text">
           <%= post.text %>
         </div>
         <% if post.image.present? %>
         <div class="in-pict">
-          <%= image_tag post.image %>
+          <%= image_tag post.image.variant(resize: '500x500') %>
         </div>
+        <% end %>
         <% end %>
         <div class="twitter__icon">
           <span class="twitter-bubble"></span>

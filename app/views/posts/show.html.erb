@@ -1,0 +1,74 @@
+<div class="twitter__container">
+  <!-- タイトル -->
+  <div class="twitter__title">
+    <span class="twitter-logo"></span>
+  </div>
+
+  <!-- ▼タイムラインエリア scrollを外すと高さ固定解除 -->
+  <div class="twitter__contents scroll">
+
+    <!-- 記事エリア -->
+    <div class="twitter__block">    
+      <figure>
+        <img src="icon.png" />
+      </figure>
+      <div class="twitter__block-text">
+        <div class="name">
+          <%= link_to @post.user.nickname, user_path(@post.user)%>
+          <span class="name_reply"><%= link_to "@#{@post.user.user_name}", user_path(@post.user) %></span>
+        </div>
+        <% if user_signed_in? && current_user.id == @post.user_id %>
+        <div class="show_btn">
+          <%= link_to "編集", "#" %>
+          <%= link_to "削除", "#" %>
+        </div>
+        <% end %>
+        <div class="text">
+          <%= @post.text %>
+        </div>
+        <% if @post.image.present? %>
+        <div class="in-pict">
+          <%= image_tag @post.image.variant(resize: '500x500') %>
+        </div>
+        <% end %>
+        <div class="date_show"><%= @post.created_at.to_s(:datetime_jp) %></div>
+        <div class="twitter__icon">
+          <span class="twitter-bubble"></span>
+          <span class="twitter-loop"></span>
+          <span class="twitter-heart"></span>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+  </div>
+  <!--　▲タイムラインエリア ここまで -->
+</div>
+<!--　▲twitter風ここまで -->
+<div class="prototype__comments">
+  <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
+  <% if user_signed_in? %>
+    <%= form_with model: [@post],local: true do |f| %>
+      <div class="field">
+        <%= f.label :content, "コメント" %><br />
+        <%= f.text_field :hoge, id:"comment_content" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "送信する", class: :form__btn %>
+      </div>
+    <% end %>
+  <% end %>
+  <%# // ログインしているユーザーには上記を表示する %>
+  <ul class="comments_lists">
+    <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+    <%# <% @comments.each do |comment|%> 
+      <li class="comments_list">
+        <%# <%= comment.content %>
+        <%= link_to "", "#", class: :comment_user %>
+      </li>
+    <%# <% end %> 
+    <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+  </ul>
+</div>
