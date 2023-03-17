@@ -374,3 +374,14 @@ a {
   list-style: circle;
   color: rgb(182, 48, 0);
 }
+
+/* 新規投稿ページ */
+.form_new_text{
+  margin-top: 10px;
+  height: 300px;
+  width: 800px;
+  font-size: 20px;
+}
+.image_form{
+  margin: 10px 0 30px 0;
+}

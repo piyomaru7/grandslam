@@ -9,6 +9,8 @@
   overflow: hidden;
   position: relative;
   line-height: 135%;
+  border: 1px solid #e3dfdf;
+  margin: 0 0 -1px;   
 }
 
 .twitter__container .twitter__contents.scroll {
