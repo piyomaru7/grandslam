@@ -1,3 +1,26 @@
 // Place all the styles related to the relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.follow-wrapper{
+  display: flex;
+  justify-content: center;
+}
+.follows__container{
+  background-color: rgb(246, 245, 245);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  width: 50%;
+  border: 1px solid lightgray ;
+  padding: 10px;
+  margin: 0 0 -1px;   
+}
+.follows_user_name{
+  display: block;
+  font-weight: 600;
+}
+.follows_nickname{
+  display: block;
+}

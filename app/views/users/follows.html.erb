@@ -1,0 +1,22 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        フォロー一覧
+      </h2>
+      <% @users.each do |user| %>
+      <div class="follow-wrapper">
+        <div class="follows__container">      
+          <div class="user_name_block">
+            <%= link_to user.user_name, user_path(user), class: :follows_user_name %>
+            <%= link_to user.nickname, user_path(user), class: :follows_nickname %>
+          </div>
+          <div class="follows__btn">
+            <%= link_to 'フォロー中', user_relationships_path(user.id), method: :delete, class: :follow_delete %>
+          </div>      
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
