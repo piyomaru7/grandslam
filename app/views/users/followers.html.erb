@@ -11,15 +11,15 @@
             <%= link_to user.user_name, user_path(user), class: :follows_user_name %>
             <%= link_to user.nickname, user_path(user), class: :follows_nickname %>
           </div>
-          <% if current_user != user %>
+          <% if user_signed_in? && current_user != user %>
           <div class="follows__btn">
             <% if current_user.following?(user) %>
             <%= link_to 'フォロー中', user_relationships_path(user), method: :delete, class: :follow_delete %>
             <% else %>
             <%= link_to 'フォローする', user_relationships_path(user), method: :POST, class: :follow_post %>
             <% end %>
-          <% end %>
           </div>
+          <% end %>
         </div>
       </div>
       <% end %>
