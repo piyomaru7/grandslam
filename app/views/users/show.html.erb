@@ -52,10 +52,10 @@
       <h2 class="page-heading">
         <%= "#{@user.user_name}の投稿"%>
       </h2>
-      <div class="user__card">
-        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
+      
         <!-- ▼twitter風ここから -->
         <div class="twitter__container">
+        <% @posts.each do |post| %>
           <!-- タイトル -->
           <div class="twitter__title">
             <span class="twitter-logo"></span>
@@ -65,16 +65,26 @@
           <div class="twitter__contents scroll">
 
             <!-- 記事エリア -->
-            <div class="twitter__block">
+            <div class="twitter__block">    
               <figure>
                 <img src="icon.png" />
               </figure>
               <div class="twitter__block-text">
-                <div class="name">うさきち<span class="name_reply">@usa_tan</span></div>
-                <div class="date">10分前</div>
-                <div class="text">
-                  今日も終電だよ～<br>
+                <div class="name">
+                  <%= link_to post.user.nickname, user_path(post.user)%>
+                  <span class="name_reply"><%= link_to "@#{post.user.user_name}", user_path(post.user) %></span>
                 </div>
+                <%= link_to post_path(post) do %>
+                <div class="date"><%= time_ago_in_words(post.created_at) %></div>
+                <div class="text">
+                  <%= post.text %>
+                </div>
+                <% if post.image.present? %>
+                <div class="in-pict">
+                  <%= image_tag post.image.variant(resize: '500x500') %>
+                </div>
+                <% end %>
+                <% end %>
                 <div class="twitter__icon">
                   <span class="twitter-bubble"></span>
                   <span class="twitter-loop"></span>
@@ -82,58 +92,12 @@
                 </div>
               </div>
             </div>
-
-            <!-- 記事エリア -->
-            <div class="twitter__block">
-              <figure>
-                <img src="icon.png" />
-              </figure>
-              <div class="twitter__block-text">
-                <div class="name">うさきち<span class="name_reply">@usa_tan</span></div>
-                <div class="date">1時間前</div>
-                <div class="text">
-                  残業でお腹空いたから朝までやってるお店でラーメン食べることにした(^o^)神の食べ物すぎる・・うまぁ
-                  <div class="in-pict">
-                    <%= image_tag 'images.globe.png' %>
-                  </div>
-                </div>
-                <div class="twitter__icon">
-                  <span class="twitter-bubble">1</span>
-                  <span class="twitter-loop">4</span>
-                  <span class="twitter-heart">122</span>
-                </div>
-              </div>
-            </div>
-
-            
-            <!-- 記事エリア -->
-            <div class="twitter__block">
-              <figure>
-                <%= image_tag 'images.globe.png' %>
-              </figure>
-              <div class="twitter__block-text">
-                <div class="name">うさきち<span class="name_reply">@usa_tan</span></div>
-                <div class="date">1時間前</div>
-                <div class="text">
-                  残業でお腹空いたから朝までやってるお店でラーメン食べることにした(^o^)神の食べ物すぎる・・うまぁ
-                  <div class="in-pict">
-                    <%= image_tag 'images.globe.png' %>
-                  </div>
-                </div>
-                <div class="twitter__icon">
-                  <span class="twitter-bubble">1</span>
-                  <span class="twitter-loop">4</span>
-                  <span class="twitter-heart">122</span>
-                </div>
-              </div>
-            </div>
-
-
           </div>
           <!--　▲タイムラインエリア ここまで -->
+        <% end %>
         </div>
         <!--　▲twitter風ここまで -->
-      </div>
+      
     </div>
   </div>
 </div>
