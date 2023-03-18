@@ -147,3 +147,22 @@
   cursor: pointer;
 }
 
+
+/* フォローボタン */
+.btn_sm{
+  text-align: center;
+  margin-bottom: 38px;
+}
+.follow_delete{
+  background: #ef3814;
+  border: 1px #fff solid;
+  color: #fff;
+  border-radius: 20px;
+  padding: 5px 15px;
+}
+.follow_post{
+  border: 1px solid #ef3814;
+  color: #ef3814;
+  border-radius: 20px;
+  padding: 5px 15px;
+}
