@@ -1,7 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :text, presence: true, unless: :was_attached?
 
@@ -16,4 +17,6 @@ class Post < ApplicationRecord
       Post.all
     end
   end
+
+  
 end
