@@ -4,7 +4,12 @@
       <h2 class="page-heading">プロフィール編集</h2>
 
         <%= form_with model: @user, local: true do |f| %>
-        <%= render 'shared/error_messages', model: f.object %>        
+        <%= render 'shared/error_messages', model: f.object %> 
+
+        <div class="field">
+          <%= f.label :avatar, "画像" %><br />
+          <%= f.file_field :avatar, class: :image_form, id:"prototype_image" %>
+        </div>       
 
         <div class="field">
           <%= f.label :user_name, "ユーザー名" %><br />

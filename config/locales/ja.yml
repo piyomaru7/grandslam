@@ -12,11 +12,11 @@ ja:
         one:   "1分"
         other: "%{count}分"
       x_minutes:
-        one:   "約1分"
+        one:   "1分"
         other: "%{count}分"
       about_x_hours:
-        one:   "約1時間"
-        other: "約%{count}時間"
+        one:   "1時間"
+        other: "%{count}時間"
       x_days:
         one:   "1日"
         other: "%{count}日"

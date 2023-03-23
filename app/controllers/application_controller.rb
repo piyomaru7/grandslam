@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,
-                                      keys: [:user_name, :nickname, :position, :pitching, :age, :area, :year, :fan, :text])
+                                      keys: [:user_name, :nickname, :position, :pitching, :age, :area, :year, :fan, :text, :avatar])
     devise_parameter_sanitizer.permit(:account_update,
-                                      keys: [:user_name, :nickname, :position, :pitching, :age, :area, :year, :fan, :text])
+                                      keys: [:user_name, :nickname, :position, :pitching, :age, :area, :year, :fan, :text, :avatar])
   end
 
   def basic_auth

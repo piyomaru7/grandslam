@@ -9,8 +9,12 @@
 
     <!-- 記事エリア -->
     <div class="twitter__block">    
-      <figure>
-        <img src="icon.png" />
+      <figure>      
+        <% if @post.user.avatar? %>
+          <%= image_tag @post.user.avatar.url %>
+        <% else %>
+          <%= image_tag ("twittericon13.png") %>
+        <% end %>            
       </figure>
       <div class="twitter__block-text">
         <div class="name">
