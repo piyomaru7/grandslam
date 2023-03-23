@@ -17,7 +17,11 @@
     <!-- 記事エリア -->
     <div class="twitter__block">    
       <figure>
-        <img src="icon.png" />
+        <% if post.user.avatar? %>
+          <%= image_tag post.user.avatar.url %>
+        <% else %>
+          <%= image_tag ("twittericon13.png") %>
+        <% end %>
       </figure>
       <div class="twitter__block-text">
         <div class="name">
@@ -25,7 +29,7 @@
           <span class="name_reply"><%= link_to "@#{post.user.user_name}", user_path(post.user) %></span>
         </div>
         <%= link_to post_path(post) do %>
-        <div class="date"><%= time_ago_in_words(post.created_at) %></div>
+        <div class="date"><%= time_ago_in_words(post.created_at) %>前</div>
         <div class="text">
           <%= post.text %>
         </div>
