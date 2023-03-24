@@ -20,14 +20,18 @@
     <div class="twitter__block">    
       <figure>
         <% if post.user.avatar? %>
-          <%= image_tag post.user.avatar.url %>
+          <%= link_to user_path(post.user) do %>
+            <%= image_tag post.user.avatar.url %>
+          <% end %>
         <% else %>
-          <%= image_tag ("twittericon13.png") %>
+          <%= link_to user_path(post.user) do %>
+            <%= image_tag ("twittericon13.png") %>
+          <% end %>
         <% end %>
       </figure>
       <div class="twitter__block-text">
         <div class="name">
-          <%= link_to post.user.nickname, user_path(post.user)%>
+          <span class="name_nickname"><%= link_to post.user.nickname, user_path(post.user)%></span>
           <span class="name_reply"><%= link_to "@#{post.user.user_name}", user_path(post.user) %></span>
         </div>
         <%= link_to post_path(post) do %>
@@ -50,8 +54,8 @@
               <%= render 'favorite', post: post %>
             </div>
           <% else %>
-            <p class="caption">            
-              <%= post.favorites.count %> いいね            
+            <p class="caption">
+              <i class="fa-sharp fa-regular fa-heart" style="color: #4f4f4f;"></i> <%= post.favorites.count %>
             </p>
           <% end%>
         </div>

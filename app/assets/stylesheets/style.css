@@ -43,6 +43,9 @@ a {
   top: 0;
   z-index: 999;
 }
+.main {
+  margin-top: 30px;
+}
 .inner {
   width: 1024px;
   margin: 0 auto;

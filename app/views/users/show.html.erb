@@ -9,9 +9,9 @@
             <%= image_tag ("twittericon13.png") %>
           <% end %>
         </figure>
-        <h2 class="page-heading-show">
-          <%= "#{@user.user_name}のマイページ"%>
-        </h2>
+        <div class="page-heading-show">
+          <span>@<%= @user.user_name %></span>
+        </div>
         <div class="d-flex">
           <%= link_to follows_user_path(@user) do %>
           <h6>フォロー<%= @following_users.count %></h6>
@@ -38,11 +38,7 @@
       </div>
       <% end %>
       <table class="table">
-        <tbody>
-          <tr>
-            <th class="table__col1">ユーザー名</th>
-            <td class="table__col2"><%= @user.user_name %></td>
-          </tr>
+        <tbody>          
           <tr>
             <th class="table__col1">ニックネーム</th>
             <td class="table__col2"><%= @user.nickname %></td>
@@ -77,9 +73,9 @@
           </tr>
         </tbody>
       </table>
-      <h2 class="page-heading">
-        <%= "#{@user.user_name}の投稿"%>
-      </h2>
+      <div class="page-heading">
+        <span>@<%= @user.user_name %></span>の投稿
+      </div>
       
         <!-- ▼twitter風ここから -->
         <div class="twitter__container">
@@ -103,7 +99,7 @@
               </figure>
               <div class="twitter__block-text">
                 <div class="name">
-                  <%= link_to post.user.nickname, user_path(post.user)%>
+                  <span class="name_nickname"><%= link_to post.user.nickname, user_path(post.user)%></span>
                   <span class="name_reply"><%= link_to "@#{post.user.user_name}", user_path(post.user) %></span>
                 </div>
                 <%= link_to post_path(post) do %>

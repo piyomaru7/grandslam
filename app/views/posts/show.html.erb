@@ -12,14 +12,18 @@
       <div class="twitter__block">    
         <figure>      
           <% if @post.user.avatar? %>
+          <%= link_to user_path(@post.user) do %>
             <%= image_tag @post.user.avatar.url %>
+          <% end %>
           <% else %>
-            <%= image_tag ("twittericon13.png") %>
-          <% end %>            
+            <%= link_to user_path(@post.user) do %>
+              <%= image_tag ("twittericon13.png") %>
+            <% end %>
+          <% end %>          
         </figure>
         <div class="twitter__block-text">
           <div class="name">
-            <%= link_to @post.user.nickname, user_path(@post.user)%>
+            <span class="name_nickname"><%= link_to @post.user.nickname, user_path(@post.user)%></span>
             <span class="name_reply"><%= link_to "@#{@post.user.user_name}", user_path(@post.user) %></span>
           </div>
           <% if user_signed_in? && current_user.id == @post.user_id %>
