@@ -1,17 +1,16 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
+
   def show
-    @user = User.find(params[:id])
     @posts = @user.posts
     @following_users = @user.following_user
     @follower_users = @user.follower_user
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.valid?
       @user.update(user_params)
       redirect_to user_path(@user)
@@ -31,6 +30,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:user_name, :nickname, :position, :pitching, :age, :area, :year, :fan, :text, :avatar)
