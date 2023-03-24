@@ -1,92 +1,96 @@
-<div class="twitter__container">
-  <!-- タイトル -->
-  <div class="twitter__title">
-    <span class="twitter-logo"></span>
-  </div>
-
-  <!-- ▼タイムラインエリア scrollを外すと高さ固定解除 -->
-  <div class="twitter__contents scroll">
-
-    <!-- 記事エリア -->
-    <div class="twitter__block">    
-      <figure>      
-        <% if @post.user.avatar? %>
-          <%= image_tag @post.user.avatar.url %>
-        <% else %>
-          <%= image_tag ("twittericon13.png") %>
-        <% end %>            
-      </figure>
-      <div class="twitter__block-text">
-        <div class="name">
-          <%= link_to @post.user.nickname, user_path(@post.user)%>
-          <span class="name_reply"><%= link_to "@#{@post.user.user_name}", user_path(@post.user) %></span>
-        </div>
-        <% if user_signed_in? && current_user.id == @post.user_id %>
-        <div class="show_btn">
-          <%= link_to "編集", edit_post_path(@post) %>
-          <%= link_to "削除", post_path(@post), method: :delete %>
-        </div>
-        <% end %>
-        <div class="text">
-          <%= @post.text %>
-        </div>
-        <% if @post.image.present? %>
-        <div class="in-pict">
-          <%= image_tag @post.image.variant(resize: '500x500') %>
-        </div>
-        <% end %>
-        <div class="date_show"><%= @post.created_at.to_s(:datetime_jp) %></div>
-        <% if user_signed_in? %>
-        <div id="favorite_btn_<%= @post.id %>">
-          <%= render 'favorite', post: @post %>
-        </div>
-        <% else %>
-          <p class="caption">            
-            <%= @post.favorites.count %> いいね            
-          </p>
-        <% end%>
-        <div class="twitter__icon">
-          <span class="twitter-bubble"></span>
-          <span class="twitter-loop"></span>
-          <span class="twitter-heart"></span>
-        </div>
-      </div>
+<div class="wrapper">
+  <div class="twitter__container">
+    <!-- タイトル -->
+    <div class="twitter__title">
+      <span class="twitter-logo"></span>
     </div>
 
-    
+    <!-- ▼タイムラインエリア scrollを外すと高さ固定解除 -->
+    <div class="twitter__contents scroll">
+
+      <!-- 記事エリア -->
+      <div class="twitter__block">    
+        <figure>      
+          <% if @post.user.avatar? %>
+            <%= image_tag @post.user.avatar.url %>
+          <% else %>
+            <%= image_tag ("twittericon13.png") %>
+          <% end %>            
+        </figure>
+        <div class="twitter__block-text">
+          <div class="name">
+            <%= link_to @post.user.nickname, user_path(@post.user)%>
+            <span class="name_reply"><%= link_to "@#{@post.user.user_name}", user_path(@post.user) %></span>
+          </div>
+          <% if user_signed_in? && current_user.id == @post.user_id %>
+          <div class="show_btn">
+            <%= link_to "編集", edit_post_path(@post) %>
+            <%= link_to "削除", post_path(@post), method: :delete %>
+          </div>
+          <% end %>
+          <div class="text">
+            <%= @post.text %>
+          </div>
+          <% if @post.image.present? %>
+          <div class="in-pict">
+            <%= image_tag @post.image.variant(resize: '500x500') %>
+          </div>
+          <% end %>
+          <div class="date_show"><%= @post.created_at.to_s(:datetime_jp) %></div>
+          
+          <div class="twitter__icon">
+            <div class="index_comments">
+              <i class="fa-regular fa-comment"></i> <%= @post.comments.count %>
+            </div>
+            <% if user_signed_in? %>
+              <div id="favorite_btn_<%= @post.id %>">
+                <%= render 'favorite', post: @post %>
+              </div>
+            <% else %>
+              <p class="caption">            
+                <%= @post.favorites.count %> いいね            
+              </p>
+            <% end%>
+          </div>
+        </div>
+      </div>
+
+      
 
 
+    </div>
+    <!--　▲タイムラインエリア ここまで -->
   </div>
-  <!--　▲タイムラインエリア ここまで -->
-</div>
-<!--　▲twitter風ここまで -->
+  <!--　▲twitter風ここまで -->
 
-<div class="prototype__comments">
-  <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
-  <% if user_signed_in? %>
-    <%= form_with model: [@post, @comment],local: true do |f| %>
-      <div class="field">
-        <%= f.label :text, "コメント" %><br />
-        <%= f.text_field :text, id:"comment_content" %>
-      </div>
-      <div class="actions">
-        <%= f.submit "送信する", class: :form__btn %>
-      </div>
+  <div class="prototype__comments">
+    <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
+    <% if user_signed_in? %>
+      <%= form_with model: [@post, @comment],local: true do |f| %>
+        <div class="field">
+          <%= f.label :text, "コメント" %><br />
+          <%= f.text_field :text, id:"comment_content" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "送信する", class: :form__btn %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-  <%# // ログインしているユーザーには上記を表示する %>
-  <ul class="comments_lists">
-    <%# 投稿に紐づくコメントを一覧する処理を記述する %>
-    <% @comments.each do |comment| %>
-      <li class="comments_list">        
-        <%= link_to comment.user.user_name, user_path(comment.user), class: :comment_user %>：
-        <%= comment.text %>
-        <% if user_signed_in? && current_user.id == comment.user_id %>
-        <%# <%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete %> 
-        <%= link_to image_tag("gomibako.png", class: :delete_image), post_comment_path(comment.post.id, comment.id), method: :delete %>
-        <% end %>
-      </li>
-    <% end %>    
-    <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
-  </ul>
+    <%# // ログインしているユーザーには上記を表示する %>
+    <ul class="comments_lists">
+      <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+      <% @comments.each do |comment| %>
+        <li class="comments_list">        
+          <%= link_to comment.user.user_name, user_path(comment.user), class: :comment_user %>：
+          <%= comment.text %>
+          <% if user_signed_in? && current_user.id == comment.user_id %>
+            <%= link_to post_comment_path(comment.post.id, comment.id), method: :delete do %>
+              <i class="fa-solid fa-trash" style="color: #7d7d7d;"></i>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>    
+      <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+    </ul>
+  </div>
 </div>

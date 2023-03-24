@@ -5,6 +5,19 @@
 
 
 /* タイムライン部分 */
+.text {
+  font-family: 'Noto Serif JP', sans-serif;
+}
+
+.name {
+  font-family: 'Noto Serif JP', sans-serif;
+}
+
+.wrapper {
+  width: 60%;
+  margin: 0 auto;
+}
+
 .twitter__container .twitter__contents {
   overflow: hidden;
   position: relative;
@@ -22,9 +35,12 @@
   width: 100%;
   display: block;
   padding: 10px;
-  margin-bottom: 5px;
   border-bottom: solid 1px #eeeeee;
   overflow: hidden;
+}
+.twitter__block:hover{
+  background: rgb(240, 239, 239);
+  transition: 0.3s;
 }
 
 .twitter__container .twitter__block:last-child {
@@ -84,51 +100,24 @@
 }
 
 /*///////////////////////////////////////////
-//埋め込みアイコン
+//アイコン
 ////////////////////////////////////////////*/
 
-.twitter__container .twitter__icon br{
-  display: none;
+.twitter__icon {
+  height: auto;
+  display: flex;  
+}
+.index_comments {
+  margin-right: 30px;
 }
 
-.twitter__container .twitter__icon .twitter-bubble {
-  width: 14px;
-  height: 14px;
-  display: block;
-  padding-left: 20px;
-  background: url("svg/twitter-bubble.svg") left no-repeat;
-  width: 20%;
-  float: left;
-  color: #8a9aa4;
-}
-
-.twitter__container .twitter__icon .twitter-heart {
-  width: 14px;
-  height: 14px;
-  display: block;
-  padding-left: 20px;
-  background: url("svg/twitter-heart.svg") left no-repeat;
-  width: 20%;
-  float: left;
-  color: #8a9aa4;
-}
-
-.twitter__container .twitter__icon .twitter-loop {
-  width: 14px;
-  height: 14px;
-  display: block;
-  padding-left: 20px;
-  background: url("svg/twitter-loop.svg") left no-repeat;
-  width: 20%;
-  float: left;
-  color: #8a9aa4;
-}
 
 /* 投稿時間 */
 .date_show{
   margin-top: 10px;
   color: #8a9aa4;
 }
+
 /* 投稿詳細画面のボタン */
 .show_btn{
   text-align: right;
@@ -167,6 +156,7 @@
   padding: 5px 15px;
 }
 
+/* 投稿詳細ページプロフィール画像 */
 .page-heading-box figure img{
   border-radius: 50%;
   width: 70px;
@@ -174,4 +164,8 @@
   position: absolute;
   top: 100px;
   left: 470px;
+}
+
+.in-pict img{
+  border-radius: 20px;
 }
