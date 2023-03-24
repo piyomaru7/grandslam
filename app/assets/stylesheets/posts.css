@@ -5,14 +5,6 @@
 
 
 /* タイムライン部分 */
-.text {
-  font-family: 'Noto Serif JP', sans-serif;
-}
-
-.name {
-  font-family: 'Noto Serif JP', sans-serif;
-}
-
 .wrapper {
   width: 60%;
   margin: 0 auto;
@@ -77,6 +69,19 @@
   margin-left: 10px;
 }
 
+.name_reply a {
+  color: rgb(108, 107, 107);
+  font-weight: 500;
+}
+
+.name_reply a:hover {
+  text-decoration: underline;
+}
+
+.name_nickname a:hover {
+  text-decoration: underline;
+}
+
 .twitter__container .twitter__block-text .date {
   position: absolute;
   top: 0;
@@ -99,13 +104,18 @@
   object-fit: cover;
 }
 
+.in-pict img{
+  border-radius: 20px;
+}
+
 /*///////////////////////////////////////////
 //アイコン
 ////////////////////////////////////////////*/
 
 .twitter__icon {
   height: auto;
-  display: flex;  
+  display: flex;
+  margin-top: 5px;  
 }
 .index_comments {
   margin-right: 30px;
@@ -163,9 +173,6 @@
   height: 70px;
   position: absolute;
   top: 100px;
-  left: 470px;
+  left: 530px;
 }
 
-.in-pict img{
-  border-radius: 20px;
-}
