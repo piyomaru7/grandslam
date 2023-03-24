@@ -1,11 +1,11 @@
 <p class="caption">
   <% if post.favorited_by?(current_user) %>
   <%= link_to post_favorites_path(post), method: :delete, remote: true, class: "favorite_btn" do %>
-  ★ <%= post.favorites.count %> 
+  <i class="fa-sharp fa-solid fa-heart" style="color: #f10979;"></i> <%= post.favorites.count %> 
   <% end %>
   <% else %>
   <%= link_to post_favorites_path(post), method: :post, remote: true, class: "favorite_btn" do %>
-    ☆ <%= post.favorites.count %> 
+  <i class="fa-sharp fa-regular fa-heart" style="color: #4f4f4f;"></i> <%= post.favorites.count %> 
   <% end %>
   <% end %>
 </p>
