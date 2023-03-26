@@ -1,9 +1,7 @@
-<div class="main">
-  <div class="inner">
-    <div class="form__wrapper">
+<div class="sign-up-wrapper">
       <h2 class="page-heading">ユーザーログイン</h2>
         
-        
+      <div class="input-field">
         <%= form_with model: @user, url: user_session_path, local: true do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
 
@@ -22,5 +20,4 @@
         </div>
       <% end %>
     </div>
-  </div>
 </div>

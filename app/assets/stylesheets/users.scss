@@ -1,3 +1,20 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ログイン、新規登録ページ */
+.sign-up-wrapper {
+  padding: 30px 0;
+  background-color: #f0efef;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.input-field {
+  text-align: center;
+  background-color: #fff;
+  width: 500px;
+  margin: 0 auto;
+  height: auto;
+  padding: 20px;
+}

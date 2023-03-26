@@ -112,6 +112,18 @@ a {
   margin: 10px 0;
 }
 
+.field input {
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+}
+
+.field textarea {
+  font-size: 15px;
+  height: 70px;
+  width: 300px;
+}
+
 .actions{
   margin-bottom: 40px;
 }
@@ -416,3 +428,4 @@ a {
 .d-flex{
   display: flex;
 }
+
