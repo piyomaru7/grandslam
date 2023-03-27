@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :move_to_index, only: [:edit, :update]
 
   def show
     @posts = @user.posts
@@ -37,5 +38,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:user_name, :nickname, :position, :pitching, :age, :area, :year, :fan, :text, :avatar)
+  end
+
+  def move_to_index
+    unless current_user
+      redirect_to root_path
+    end
   end
 end
