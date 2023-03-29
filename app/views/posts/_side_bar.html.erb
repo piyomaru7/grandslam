@@ -5,39 +5,39 @@
       </div>
     </div>
     <div class="side-main">
-      <ul class="side-main-list">
-        <li>
+      <ul class="side-main-lists">
+        <li class="side-main-list">
           <%= link_to root_path do %>
             <i class="fa-solid fa-house" style="color: #191919;"></i> ホーム
           <% end %>
         </li>
         <% if user_signed_in? %>
-          <li>
+          <li class="side-main-list">
             <%= link_to user_path(current_user) do %>
               <i class="fa-solid fa-user" style="color: #191919;"></i> プロフィール
             <% end %>
           </li>
-          <li>
+          <li class="side-main-list">
             <%= link_to follows_user_path(current_user) do %>
               フォロー一覧
             <% end %>
           </li>
-          <li>
+          <li class="side-main-list">
             <%= link_to followers_user_path(current_user) do %>
               フォロワー一覧
             <% end %>
           </li>
-          <li>
+          <li class="side-main-list">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>
-          <li>
-            <%= link_to "投稿する", new_post_path, class: "post__btn" %>
+          <li class="post__btn">
+            <%= link_to "投稿する", new_post_path %>
           </li>          
         <% else %>
-          <li>
+          <li class="side-main-list">
             <%= link_to "ログイン", new_user_session_path %>
           </li>
-          <li>
+          <li class="side-main-list">
             <%= link_to "新規登録", new_user_registration_path %>
           </li>
         <% end %>
