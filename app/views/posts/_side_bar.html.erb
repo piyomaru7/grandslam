@@ -19,16 +19,18 @@
           </li>
           <li class="side-main-list">
             <%= link_to follows_user_path(current_user) do %>
-              フォロー一覧
+              <i class="fa-solid fa-people-group" style="color: #19191a;"></i> フォロー一覧
             <% end %>
           </li>
           <li class="side-main-list">
             <%= link_to followers_user_path(current_user) do %>
-              フォロワー一覧
+              <i class="fa-solid fa-people-group" style="color: #19191a;"></i> フォロワー一覧
             <% end %>
           </li>
           <li class="side-main-list">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa-solid fa-right-from-bracket" style="color: #19191a;"></i> ログアウト
+            <% end %>
           </li>
           <li class="post__btn">
             <%= link_to "投稿する", new_post_path %>
