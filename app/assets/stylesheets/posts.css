@@ -246,13 +246,4 @@
   padding: 5px 15px;
 }
 
-/* 投稿詳細ページプロフィール画像 */
-.page-heading-box figure img{
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  position: absolute;
-  top: 100px;
-  left: 530px;
-}
 

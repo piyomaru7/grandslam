@@ -414,18 +414,30 @@ a {
 /* マイページのタイトル */
 .page-heading-box{
   display: flex;
-  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto 10px;
+  width: 500px;
+}
+.page-heading-box figure {
+  width: 50px;
+  padding: 0;
+  margin-right: 10px;
+}
+.page-heading-box figure img{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 .page-heading-show {
   font-size: 30px;
-  margin-bottom: 28px;
   text-align: center;
-  margin-left: 330px;
 }
 .page-heading-show span {
   font-weight: 800;
 }
 .d-flex{
   display: flex;
+  margin-left: 10px;
 }
 
