@@ -106,7 +106,8 @@
   position: relative;
   line-height: 135%;
   border: 1px solid #e3dfdf;
-  margin: 0 0 -1px;   
+  margin: 0 0 -1px;
+  padding: 0 30px;   
 }
 
 .twitter__container .twitter__contents.scroll {

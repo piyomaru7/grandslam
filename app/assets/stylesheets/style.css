@@ -44,7 +44,9 @@ a {
   z-index: 999;
 }
 .main {
-  margin-top: 30px;
+  padding-top: 30px;
+  height: 100vh;
+  overflow-y: scroll;
 }
 .inner {
   width: 1024px;
