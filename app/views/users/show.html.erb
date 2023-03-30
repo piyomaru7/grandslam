@@ -105,7 +105,7 @@
                 <%= link_to post_path(post) do %>
                 <div class="date"><%= time_ago_in_words(post.created_at) %>前</div>
                 <div class="text">
-                  <%= post.text %>
+                  <p style="white-space:pre-wrap;"><%= post.text %></p>
                 </div>
                 <% if post.image.present? %>
                 <div class="in-pict">
@@ -114,9 +114,18 @@
                 <% end %>
                 <% end %>
                 <div class="twitter__icon">
-                  <span class="twitter-bubble"></span>
-                  <span class="twitter-loop"></span>
-                  <span class="twitter-heart"></span>
+                  <div class="index_comments">
+                    <i class="fa-regular fa-comment"></i> <%= post.comments.count %>
+                  </div>
+                  <% if user_signed_in? %>
+                    <div id="favorite_btn_<%= post.id %>">
+                      <%= render 'posts/favorite', post: post %>
+                    </div>
+                  <% else %>
+                    <p class="caption">
+                      <i class="fa-sharp fa-regular fa-heart" style="color: #4f4f4f;"></i> <%= post.favorites.count %>
+                    </p>
+                  <% end%>
                 </div>
               </div>
             </div>

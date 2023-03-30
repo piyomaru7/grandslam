@@ -37,7 +37,7 @@
         <%= link_to post_path(post) do %>
         <div class="date"><%= time_ago_in_words(post.created_at) %>前</div>
         <div class="text">
-          <%= post.text %>
+          <p style="white-space:pre-wrap;"><%= post.text %></p>
         </div>
         <% if post.image.present? %>
         <div class="in-pict">

@@ -33,7 +33,7 @@
           </div>
           <% end %>
           <div class="text">
-            <%= @post.text %>
+            <p style="white-space:pre-wrap;"><%= @post.text %></p>
           </div>
           <% if @post.image.present? %>
           <div class="in-pict">
