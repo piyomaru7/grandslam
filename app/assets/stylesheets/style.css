@@ -117,17 +117,25 @@ a {
 .field input {
   height: 40px;
   width: 200px;
-  font-size: 20px;
+  font-size: 15px;
+  font-family: 'Noto Serif JP', sans-serif;
 }
 
 .field textarea {
   font-size: 15px;
   height: 70px;
   width: 300px;
+  font-family: 'Noto Serif JP', sans-serif;
+}
+
+.form-new-field textarea {
+  font-size: 15px;
+  height: 400px;  
+  font-family: 'Noto Serif JP', sans-serif;
 }
 
 .actions{
-  margin-bottom: 40px;
+  margin: 20px 0 40px;
 }
 
 .form__btn{
@@ -413,6 +421,15 @@ a {
   margin: 10px 0 30px 0;
 }
 
+.main-post {
+  padding-top: 30px;
+  background-image: url("ball.image.jpeg");
+  background-color:rgba(255,255,255,0.5);
+  background-blend-mode:lighten;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* マイページのタイトル */
 .page-heading-box{
   display: flex;
@@ -442,4 +459,5 @@ a {
   display: flex;
   margin-left: 10px;
 }
+
 
